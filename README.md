@@ -1,5 +1,8 @@
 # harrypottervisualiser
 
+## Auto launch
+Use the "OpenProject.bat"
+
 ## Project setup
 ```
 npm install
