@@ -45,3 +45,45 @@ body {
     margin-top: 20px; /* Marge supérieure */
     margin-bottom: 0; /* Suppression de la marge inférieure */
 }
+.TicketContainer {
+    box-sizing: border-box; /* Boîte avec taille totale incluant les bordures et les rembourrages */
+    max-width: 1600px; /* Largeur maximale du contenu */
+    margin: 0 auto; /* Centrage horizontal sans marges */
+    padding: 20px; /* Espacement intérieur */
+    color: #fff; /* Couleur du texte */
+    font-family: 'Harry Potter', sans-serif; /* Utilisation d'une police inspirée de l'univers */
+    text-align: justify; /* Justification du texte */
+    line-height: 1.6; /* Espacement des lignes */
+}
+.container {
+    box-sizing: border-box;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #fff;
+    font-family: 'Harry Potter', sans-serif;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr)); /* 4 personnages par ligne avec une largeur minimale de 200px */
+    grid-gap: 20px;
+}
+
+.character-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #502020;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    width: auto; /* Ajustement automatique de la largeur en fonction du contenu */
+}
+
+.character-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+  

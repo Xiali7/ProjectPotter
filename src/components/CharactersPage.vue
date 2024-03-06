@@ -4,14 +4,40 @@
     <div class="container">
       <h1>Personnages</h1>
       <input type="text" v-model="searchQuery" placeholder="Rechercher par nom...">
+      <label for="pageSize">Nombre de personnages par page:</label>
+      <select v-model="pageSize" @change="changePageSize">
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </div>
+    <div class="TicketContainer">
       <div class="character-grid" v-if="characters.length === 0">Aucun Résultat</div>
       <div class="character-grid" v-else>
         <div class="character-card" v-for="character in filteredCharacters" :key="character.id">
+          <img :src="character.attributes.image || 'https://potterdb.com/images/missing_character.svg'" alt="Image du personnage" style="max-height: 250px;">
           <h2>{{ character.attributes.name }}</h2>
-          <p><strong>Maison:</strong> {{ character.attributes.house }}</p>
-          <p><strong>Année de naissance:</strong> {{ character.attributes.birth_year }}</p>
-          <!-- Ajoutez d'autres informations du personnage ici -->
+          <template v-if="character.attributes.gender">
+            <p><strong>Sexe:</strong> {{ character.attributes.gender }}</p>
+          </template>
+          <template v-if="character.attributes.species">
+            <p><strong>Espèce:</strong> {{ character.attributes.species }}</p>
+          </template>
+          <template v-if="character.attributes.born">
+            <p><strong>Année de naissance:</strong> {{ character.attributes.born }}</p>
+          </template>
+          <template v-if="character.attributes.house">
+            <p><strong>Maison:</strong> {{ character.attributes.house }}</p>
+          </template>
         </div>
+      </div>
+      <!-- Ajout de la pagination -->
+      <div class="pagination">
+        <button @click="fetchPage('first')" :disabled="!paginationLinks.first">Première page</button>
+        <button @click="fetchPage('prev')" :disabled="!paginationLinks.prev">Page précédente</button>
+        <button @click="fetchPage('next')" :disabled="!paginationLinks.next">Page suivante</button>
+        <button @click="fetchPage('last')" :disabled="!paginationLinks.last">Dernière page</button>
       </div>
     </div>
   </div>
@@ -29,7 +55,14 @@ export default {
   data() {
     return {
       characters: [],
-      searchQuery: ''
+      searchQuery: '',
+      paginationLinks: {
+        first: null,
+        prev: null,
+        next: null,
+        last: null
+      },
+      pageSize: 25
     };
   },
   computed: {
@@ -45,37 +78,49 @@ export default {
   watch: {
     searchQuery: function() {
       this.fetchCharacters();
+    },
+    pageSize: function() {
+      this.fetchCharacters();
     }
   },
   methods: {
-    async fetchCharacters() {
+    async fetchCharacters(url = 'https://api.potterdb.com/v1/characters') {
       try {
-        let url = 'https://api.potterdb.com/v1/characters';
+        let filters = [];
+
         if (this.searchQuery) {
-          url += `?filter[name_cont]=${encodeURIComponent(this.searchQuery)}`;
+          filters.push(`filter[name_cont]=${encodeURIComponent(this.searchQuery)}`);
         }
+
+        filters.push(`page[size]=${this.pageSize}`);
+
+        if (filters.length > 0) {
+          url += `?${filters.join('&')}`;
+        }
+
         const response = await axios.get(url);
         this.characters = response.data.data;
+
+        // Mise à jour des liens de pagination
+        this.paginationLinks = {
+          first: response.data.links.first,
+          prev: response.data.links.prev,
+          next: response.data.links.next,
+          last: response.data.links.last
+        };
       } catch (error) {
         console.error('Erreur lors de la récupération des personnages', error);
       }
     },
-  },
+    fetchPage(type) {
+      // Charger la page en fonction du type (first, prev, next, last)
+      if (this.paginationLinks[type]) {
+        this.fetchCharacters(this.paginationLinks[type]);
+      }
+    },
+    changePageSize() {
+      this.fetchCharacters();
+    }
+  }
 };
 </script>
-
-
-
-<style scoped>
-.character-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Grille avec des colonnes de largeur égale */
-  grid-gap: 20px; /* Espacement entre les éléments de la grille */
-}
-
-.character-card {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-}
-</style>
