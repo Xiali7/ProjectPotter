@@ -13,9 +13,9 @@
       </select>
     </div>
     <div class="TicketContainer">
-      <div class="spell-grid" v-if="spells.length === 0">Aucun Résultat</div>
-      <div class="spell-grid" v-else>
-        <div class="spell-card" v-for="spell in filteredSpells" :key="spell.id">
+      <div class="character-grid" v-if="spells.length === 0">Aucun Résultat</div>
+      <div class="character-grid" v-else>
+        <div class="character-card" v-for="spell in filteredSpells" :key="spell.id">
           <img :src="spell.attributes.image || 'https://potterdb.com/images/missing_spell.svg'" alt="Image du sort" style="max-height: 250px;">
           <h2>{{ spell.attributes.name }}</h2>
           <p><strong>Catégorie:</strong> {{ spell.attributes.category }}</p>
