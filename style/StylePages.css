@@ -1,0 +1,47 @@
+/* Styles pour le header */
+nav {
+    background-color: #140000; /* Couleur de fond inspirée de l'univers de Harry Potter */
+    padding: 20px; /* Espacement intérieur */
+    color: #fff; /* Couleur du texte */
+    font-size: 20px; /* Taille de police */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Harry Potter', sans-serif; /* Utilisation d'une police inspirée de l'univers */
+}
+
+nav a {
+    color: #d3a625; /* Couleur des liens */
+    text-decoration: none; /* Suppression du soulignement */
+    margin: 0 15px; /* Espacement entre les liens */
+    transition: color 0.3s ease; /* Transition de couleur fluide */
+    font-weight: bold; /* Texte en gras */
+}
+
+nav a:hover {
+    color: #fff; /* Changement de couleur au survol */
+}
+
+/* Styles pour le corps de la page */
+body {
+    margin: 0; /* Suppression de la marge par défaut du corps du document */
+    padding: 0; /* Suppression du padding par défaut du corps du document */
+    background-color: #380001; /* Couleur de fond cohérente avec l'univers de Harry Potter */
+}
+
+.container {
+    box-sizing: border-box; /* Boîte avec taille totale incluant les bordures et les rembourrages */
+    max-width: 800px; /* Largeur maximale du contenu */
+    margin: 0 auto; /* Centrage horizontal sans marges */
+    padding: 20px; /* Espacement intérieur */
+    color: #fff; /* Couleur du texte */
+    font-family: 'Harry Potter', sans-serif; /* Utilisation d'une police inspirée de l'univers */
+    text-align: justify; /* Justification du texte */
+    line-height: 1.6; /* Espacement des lignes */
+}
+
+/* Styles pour le texte d'exemple */
+.example-text {
+    margin-top: 20px; /* Marge supérieure */
+    margin-bottom: 0; /* Suppression de la marge inférieure */
+}
