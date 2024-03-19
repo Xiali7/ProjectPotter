@@ -16,7 +16,7 @@
       <div class="character-grid" v-if="books.length === 0">Aucun Résultat</div>
       <div class="character-grid" v-else>
         <div class="character-card" v-for="book in filteredBooks" :key="book.id">
-          <img :src="book.attributes.cover || 'https://placeholder.com/150'" alt="Couverture du livre" style="max-height: 250px;">
+          <img :src="book.attributes.cover || 'https://placeholder.com/150'" alt="Couverture du livre" style="max-height: 300px;">
           <h2>{{ book.attributes.title }}</h2>
           <template v-if="book.attributes.author">
             <p><strong>Auteur:</strong> {{ book.attributes.author }}</p>
