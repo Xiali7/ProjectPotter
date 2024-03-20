@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue'
 
-// give each todo a unique id
 let id = 0
 
 const newTodo = ref('')

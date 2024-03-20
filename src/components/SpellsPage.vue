@@ -3,8 +3,8 @@
     <HeaderVue />
     <div class="container">
       <h1>Sorts</h1>
-      <input type="text" v-model="searchQuery" placeholder="Rechercher par nom...">
-      <label for="pageSize">Nombre de sorts par page:</label>
+      <input type="text" v-model="searchQuery" placeholder="Rechercher par nom..."><br>
+      <label for="pageSize">Nombre de sorts par page:   </label>
       <select v-model="pageSize" @change="changePageSize">
         <option value="10">10</option>
         <option value="25">25</option>

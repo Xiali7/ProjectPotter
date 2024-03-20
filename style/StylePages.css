@@ -1,59 +1,58 @@
-/* Styles pour le header */
+
 nav {
-    background-color: #140000; /* Couleur de fond inspirée de l'univers de Harry Potter */
-    padding: 20px; /* Espacement intérieur */
-    color: #fff; /* Couleur du texte */
-    font-size: 20px; /* Taille de police */
+    background-color: #140000; 
+    padding: 20px; 
+    color: #fff; 
+    font-size: 20px; 
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Harry Potter', sans-serif; /* Utilisation d'une police inspirée de l'univers */
+    font-family: 'Harry Potter', sans-serif; 
 }
 
 nav a {
-    color: #d3a625; /* Couleur des liens */
-    text-decoration: none; /* Suppression du soulignement */
-    margin: 0 15px; /* Espacement entre les liens */
-    transition: color 0.3s ease; /* Transition de couleur fluide */
-    font-weight: bold; /* Texte en gras */
+    color: #d3a625; 
+    text-decoration: none; 
+    margin: 0 15px; 
+    transition: color 0.3s ease; 
+    font-weight: bold; 
 }
 
 nav a:hover {
-    color: #fff; /* Changement de couleur au survol */
+    color: #fff; 
 }
 
-/* Styles pour le corps de la page */
 body {
-    margin: 0; /* Suppression de la marge par défaut du corps du document */
-    padding: 0; /* Suppression du padding par défaut du corps du document */
-    background-color: #380001; /* Couleur de fond cohérente avec l'univers de Harry Potter */
+    margin: 0; 
+    padding: 0; 
+    background-color: #380001; 
 }
 
 .container {
-    box-sizing: border-box; /* Boîte avec taille totale incluant les bordures et les rembourrages */
-    max-width: 800px; /* Largeur maximale du contenu */
-    margin: 0 auto; /* Centrage horizontal sans marges */
-    padding: 20px; /* Espacement intérieur */
-    color: #fff; /* Couleur du texte */
-    font-family: 'Harry Potter', sans-serif; /* Utilisation d'une police inspirée de l'univers */
-    text-align: justify; /* Justification du texte */
-    line-height: 1.6; /* Espacement des lignes */
+    box-sizing: border-box; 
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    color: #fff; 
+    font-family: 'Harry Potter', sans-serif; 
+    text-align: justify; 
+    line-height: 1.6; 
 }
 
-/* Styles pour le texte d'exemple */
+
 .example-text {
-    margin-top: 20px; /* Marge supérieure */
-    margin-bottom: 0; /* Suppression de la marge inférieure */
+    margin-top: 20px; 
+    margin-bottom: 0; 
 }
 .TicketContainer {
-    box-sizing: border-box; /* Boîte avec taille totale incluant les bordures et les rembourrages */
-    max-width: 1600px; /* Largeur maximale du contenu */
-    margin: 0 auto; /* Centrage horizontal sans marges */
-    padding: 20px; /* Espacement intérieur */
-    color: #fff; /* Couleur du texte */
-    font-family: 'Harry Potter', sans-serif; /* Utilisation d'une police inspirée de l'univers */
-    text-align: justify; /* Justification du texte */
-    line-height: 1.6; /* Espacement des lignes */
+    box-sizing: border-box; 
+    max-width: 1600px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    color: #fff; 
+    font-family: 'Harry Potter', sans-serif; 
+    text-align: justify; 
+    line-height: 1.6; 
 }
 .container {
     box-sizing: border-box;
@@ -68,7 +67,7 @@ body {
 
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(200px, 1fr)); /* 4 personnages par ligne avec une largeur minimale de 200px */
+    grid-template-columns: repeat(4, minmax(200px, 1fr)); 
     grid-gap: 20px;
 }
 
@@ -79,11 +78,55 @@ body {
     background-color: #502020;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
-    width: auto; /* Ajustement automatique de la largeur en fonction du contenu */
+    width: auto; 
 }
 
 .character-card:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.character-card img {
+    display: block;
+    margin: 0 auto;
+    max-height: 250px;
+  }
   
+
+.container input[type="text"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.container select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #140000;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination button:hover {
+    background-color: #380001;
+}

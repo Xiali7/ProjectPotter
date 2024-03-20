@@ -3,8 +3,8 @@
     <HeaderVue />
     <div class="container">
       <h1>Livres</h1>
-      <input type="text" v-model="searchQuery" placeholder="Rechercher par titre...">
-      <label for="pageSize">Nombre de livres par page:</label>
+      <input type="text" v-model="searchQuery" placeholder="Rechercher par titre..."><br>
+      <label for="pageSize">Nombre de livres par page:   </label>
       <select v-model="pageSize" @change="changePageSize">
         <option value="10">10</option>
         <option value="25">25</option>
