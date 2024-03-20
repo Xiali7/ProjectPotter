@@ -26,7 +26,6 @@
           </template>
         </div>
       </div>
-      <!-- Ajout de la pagination -->
       <div class="pagination">
         <button @click="fetchPage('first')" :disabled="!paginationLinks.first">Première page</button>
         <button @click="fetchPage('prev')" :disabled="!paginationLinks.prev">Page précédente</button>
@@ -95,7 +94,6 @@ export default {
         const response = await axios.get(url);
         this.books = response.data.data;
 
-        // Mise à jour des liens de pagination
         this.paginationLinks = {
           first: response.data.links.first,
           prev: response.data.links.prev,
@@ -107,7 +105,6 @@ export default {
       }
     },
     fetchPage(type) {
-      // Charger la page en fonction du type (first, prev, next, last)
       if (this.paginationLinks[type]) {
         this.fetchBooks(this.paginationLinks[type]);
       }

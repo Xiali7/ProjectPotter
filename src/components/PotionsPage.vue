@@ -21,7 +21,6 @@
           <p><strong>Caractéristiques:</strong> {{ potion.attributes.characteristics }}</p>
         </div>
       </div>
-      <!-- Ajout de la pagination -->
       <div class="pagination">
         <button @click="fetchPage('first')" :disabled="!paginationLinks.first">Première page</button>
         <button @click="fetchPage('prev')" :disabled="!paginationLinks.prev">Page précédente</button>
@@ -37,7 +36,7 @@ import axios from 'axios';
 import HeaderVue from './HeaderVue.vue';
 
 export default {
-  name: 'PotionsPage', // Nom de la nouvelle page
+  name: 'PotionsPage', 
   components: {
     HeaderVue
   },
@@ -90,7 +89,6 @@ export default {
         const response = await axios.get(url);
         this.potions = response.data.data;
 
-        // Mise à jour des liens de pagination
         this.paginationLinks = {
           first: response.data.links.first,
           prev: response.data.links.prev,
@@ -102,7 +100,6 @@ export default {
       }
     },
     fetchPage(type) {
-      // Charger la page en fonction du type (first, prev, next, last)
       if (this.paginationLinks[type]) {
         this.fetchPotions(this.paginationLinks[type]);
       }
