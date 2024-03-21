@@ -14,6 +14,7 @@
       <br>
       <a href="https://docs.potterdb.com/fr" >Doc PotterDB</a>
     </div>
+  </div>
 </template>
 
 <script>
